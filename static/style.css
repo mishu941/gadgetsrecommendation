@@ -1,0 +1,509 @@
+body {
+  font-family: Arial;
+  background: #000000;
+}
+#div {
+  text-align: center;
+}
+* {
+  box-sizing: border-box;
+}
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+
+.movie {
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  resize: none;
+}
+
+.movie-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+
+}
+
+
+.btn-block{
+  width: 15%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: #e4e0e0;
+}
+
+#content {
+
+  background-color: rgb(0, 0, 0);
+  font-family: 'Noto Sans JP', sans-serif;
+  
+}
+
+#details {
+  margin-left: 50px;
+}
+
+/* .footer {
+  
+  color: #e4e0e0;
+  text-align:right;
+  position: fixed;
+   bottom: 20px;
+   right: 20px;
+   width: 100%;
+} */
+
+h1 {
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #ececec;
+    font-weight: bold;
+    margin-top: 30px;
+    text-shadow: #000000 0px 0px 13px;
+ }
+
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+}
+
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0)
+  }
+
+  20%,
+  60% {
+    transform: rotate(-25deg)
+  }
+
+  40%,
+  80% {
+    transform: rotate(10deg)
+  }
+}
+
+
+#name {
+  color: white;
+  padding: 1px;
+}
+
+h6 {
+    margin-bottom: 20px;  
+}
+
+@media only screen and (max-width: 650px) {
+    #mcontent {
+      display: block;
+    }
+    .poster-lg {
+      display: none;
+    }
+    #details {
+    margin-left: 30px;
+  }
+    /* #loader {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../static/loader.gif");
+    background-size: 40%;
+    background-position: 50% 50%;
+    background-color: rgba(255, 255, 255, 1);
+    background-repeat: no-repeat;
+    -webkit-transition: background-image 0.2s ease-in-out;
+    transition: background-image 0.2s ease-in-out;
+  }
+
+  #loader-text {
+    vertical-align: middle;
+    color:white;
+  } */
+
+  #autoComplete {
+    background-position: 97% ;
+  }
+  
+  svg[data-toggle=tooltip] {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .modal-body{
+    display: block !important;
+  }
+  .profile-pic {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .modal-body {
+    display: block !important;
+  }
+}
+
+@media only screen and (min-width: 651px) {
+  .poster-sm {
+    display: none;
+   }
+
+  #mcontent {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  /* #loader {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../static/loader.gif");
+    background-size: 20%;
+    background-position: 50% 50%;
+    background-color: rgba(255, 255, 255, 1);
+    background-repeat: no-repeat;
+    -webkit-transition: background-image 0.2s ease-in-out;
+    transition: background-image 0.2s ease-in-out;
+  } */
+
+  /* #loader-text {
+    vertical-align: middle;
+    color:white;
+  } */
+
+}
+
+/* .poster{
+    -webkit-box-shadow: 0px 1px 15px 4px rgba(250,250,250,1);
+    -moz-box-shadow: 0px 1px 15px 4px rgba(250,250,250,1);
+    box-shadow: 0px 1px 15px 4px rgba(250,250,250,1);
+} */
+
+.card:hover {
+  cursor: pointer;
+}
+
+.castcard:hover {
+    cursor: pointer;
+}
+
+.cast-img {
+  filter: brightness(100%);
+  -moz-transition: all 0.75s ease;
+    -webkit-transition: all 0.75s ease;
+  transition: all 0.75s ease;
+}
+
+.cast-img:hover {
+  filter: brightness(50%);
+  -moz-transition: all 0.75s ease;
+    -webkit-transition: all 0.75s ease;
+    transition: all 0.75s ease;
+}
+
+.fig {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: brightness(50%);
+  position: absolute;
+  bottom: 0px;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  opacity: 0;
+  -moz-transition: all 0.75s ease;
+    -webkit-transition: all 0.75s ease;
+    transition: all 0.75s ease;
+}
+
+.fig:hover {
+  opacity: 1;
+  backdrop-filter:br;
+  -moz-transition: all 0.75s ease;
+    -webkit-transition: all 0.75s ease;
+    transition: all 0.75s ease;
+}
+
+.card-btn {
+  border-radius: 20px;
+}
+
+.imghvr {
+  position: relative;
+}
+
+.table td {
+    border-color: white;
+    border-style:solid; 
+    border-width:1px;
+}
+
+
+.main-banner .wrapper {
+  position: relative;
+  padding-top: 200px;
+  padding-bottom: 245px;
+  
+  
+  
+}
+
+  
+.main-banner {
+  position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(1.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.main-banner::before {    
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(5, 5, 3, 0.5);
+}
+
+
+
+
+.main-banner h1 {
+ position: relative;
+  color: #ffffff;  
+  font-size: 2.5rem;
+  line-height: 0.9;
+  text-align: center;
+}
+
+
+
+
+.main-banner .wrapper {
+  position: relative;
+  padding-top: 25%;
+  padding-bottom: 10%;
+}
+
+
+.box{
+  
+  font-weight: bold;
+  opacity: 0;
+  margin: 0;
+  
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1rem rgb(27, 143, 114);
+  color: rgb(240, 231, 247);
+  }
+  
+  
+  .b1{
+    animation: ani1 15s infinite;
+    
+    }
+    .b2{
+    animation: ani2 15s infinite;
+    }
+    .b3{
+    animation: ani3 15s infinite;
+    }
+    .b4{
+    animation: ani4 15s infinite;
+    }
+    .b5{
+    animation: ani5 15s infinite;
+    }
+    
+    @keyframes ani1 {
+    0%{
+      opacity: 0;
+    }
+    10%{
+      opacity: 1;
+    }
+    20%{
+      opacity: 0;
+    }
+    
+    }
+    
+    @keyframes ani2 {
+    20%{
+      opacity: 0;
+    }
+    30%{
+      opacity: 1;
+    }
+    40%{
+      opacity: 0;
+    }
+    
+    }
+    
+    
+    @keyframes ani3 {
+    40%{
+      opacity: 0;
+    }
+    50%{
+      opacity: 1;
+    }
+    60%{
+      opacity: 0;
+    }
+    
+    }
+    
+    
+    @keyframes ani4 {
+    60%{
+      opacity: 0;
+    }
+    70%{
+      opacity: 1;
+    }
+    80%{
+      opacity: 0;
+    }
+    
+    }
+    
+    
+    @keyframes ani5 {
+    80%{
+      opacity: 0;
+    }
+    90%{
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+    }
+    
+    }
+
+
+    #title{
+  
+      z-index: 1;
+     
+      width: 100%;
+          }
+
+          
+          .main-banner .wrapper {
+          position: relative;
+         
+      }
+      
+          h3{
+            font-family: Montserrat-bold;
+            font-weight: bold;
+          }
+      
+          .container-fluid{
+            padding: -8% 4% -4%;
+      
+          }
+          .navbar{
+            padding-left: 4%;
+            padding-right: 2%;
+           
+          }
+          .navbar-brand{
+            font-family: Ubuntu cursive;
+            font-size: 2.0rem;
+            font-weight: bold;
+            
+      
+          }
+          .nav-item{
+          padding:2px;
+          font-size:5.0rem;
+      
+          }
+       
+          .nav-link{
+            font-size: 1.3rem;
+            font-family: Montserrat;
+            padding:2% 0%;
+            font-weight: 500;
+          }
+      
+          .download-button{
+            margin: 5% 3% 5% 3%;
+          }
+      
+      
+       
+  #footer{
+   
+    padding: 7% 15%;
+    
+  }
+  
+  .social-icon{
+    margin: 20px 10px;
+    color:  #98c421 ;
+  
+  }
+  #welcome{
+    color:  rgb(255, 255, 255);
+    background-color:  rgb(21, 11, 3);
+    padding-bottom: 5%;
+  
+  }
+  
+  #welcome p{
+    padding-left: 10%;
+    padding-right: 10%;
+  
+    font-style: italic;
+  
+  }
+  
+
+  /* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 20px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Gadget Recommendation System</title>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Auto Complete -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+  <script type="text/javascript">
+    var films = {{suggestions|tojson}};
+  </script>
+  </head>
+  <body>
+
+    <section id="title">
+
+  
+      <div class="container-fluid" style="padding-top:1%;">
+        <nav class="navbar navbar-expand-lg navbar-dark " >
+            <a class="navbar-brand" style="color:#fff;" >Gadget Recommendation System</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+            <ul class="navbar-nav ml-auto">
+    
+              <li class="nav-item">
+                <a class="nav-link" href="#firstbox">Home</a>
+    
+                </li>
+           
+    
+                <li class="nav-item" >
+                  <a class="nav-link" href="#secbox">Recommender</a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link " href="#thibox">About Us</a>
+                </li>
+                <li class="nav-item" >
+                  <a class="nav-link " href="#footer">Contact Us </a>
+                </li>
+            </ul>
+    
+          
+     
+          </div>
+        </nav>
+      </div>
+    
+    </section>
+      <section id="firstbox" class="main-banner">
+    <div class="full-wrap">
+       <div class="wrapper" >
+            <h1 class="box b1">Looking for the perfect gadget? </h1>
+            <h1 class="box b2">Not sure which gadget to choose?</h1>
+            <h1 class="box b3">Let us help you find your tech soulmate! </h1>
+            <h1 class="box b4">Let our algorithm do the work </h1>
+            <h1 class="box b5">Get recommendations tailored to your unique lifestyle</h1>
+          </div>
+           
+    </div>
+  </section>
+  
+    
+<section id="secbox">
+  
+  <form action="/recommend" method="POST" autocomplete="off" id="div">
+    <div class="card text-center"style="background-color:  black; margin :2% 2% 2% 2%; padding:2%; border-radius:1%;">
+      <div class="card-header">
+        <marquee behavior="alternate"><h1 class="card-title"> Search For Gadget</h1></marquee>
+      </div>
+      <div class="card-body">
+        <div class="form-group shadow-textarea autocomplete" style="margin-top:10px; text-align: center;color:white;">
+          <input type="text" name="laptop" class="movie form-control" id="myInput"  placeholder="Enter Gadget Name......" style="background-color:black;border-color:#ffffff;width: 60%;color:#fff" required="required" />
+          <br>
+      </div>          
+      </div>
+
+  </div>
+    <button type="submit" class="btn btn-primary btn-block movie-button" style="background-color: #0e0401;text-align: center;border-color: #ffffff ;width:120px; margin-bottom:3%;">Submit</button>
+  </form>
+</section>
+
+
+
+  <section class="main-banner" id="thibox">
+    <div class="full-wrap">
+       <div class="wrapper" >
+            
+      <h1  style="font-size:3rem; color:#fff ;" >About us</h1>
+   <p  style="font-size:20px; color:#fff; padding:5%;" >
+
+    Introducing our cutting-edge gadget recommendation system! Leveraging advanced machine learning algorithms, it analyzes your preferences, usage patterns, and budget to deliver personalized gadget suggestions. Say goodbye to decision fatigue and discover the perfect tech companion tailored just for you.  </p>
+          </div>
+           
+    </div>
+  </section>
+
+	<footer id="footer" style="color:#fff; ">
+    <center>
+      <h2 style="font-size: 45px;">Team Details</h2>
+    </center>
+   <br>
+   <br>
+
+
+   <div class="row">
+    <div class="column">
+      <h4>Team Leader</h4>
+      <p> Name: Vaibhav Jain <br>
+        Roll Number: 19ESKIT096 <br>
+        Email: jain.vaibhav2700@gmail.com <br></p>
+<br>
+<br>
+      <h4>  Team Member 1</h4>
+<p>Name: Sneha Khandelwal<br>
+  Roll Number: 19ESKIT090<br>
+  Email: snehakhandelwal333@gmail.com <br></p>
+
+    </div>
+    <div class="column" >
+      <h4> Team Member 2</h4>
+      <p> Name: Sonali Kumawat<br>
+        Roll Number: 19ESKIT091<br>
+        Email: sonalikumawat700@gmail.com </p>
+        <br>
+<br>
+      <h4>Team Member 3</h4>
+      <p>Name: Mishu Pushpendra Jain<br>
+        Roll Number: 19ESKIT304<br>
+        Email: mishujain920@gmail.com<br></p>
+    </div>
+  </div>
+   
+  
+  </footer>
+	
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='autocomplete.js')}}"></script>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='recommend.js')}}"></script>
+    <script>
+      function autocomplete(inp, arr) {
+        var currentFocus;
+        inp.addEventListener("input", function(e) {
+            var a, b, i, val = this.value;
+            closeAllLists();
+            if (!val) { return false;}
+            currentFocus = -1;
+            a = document.createElement("DIV");
+            a.setAttribute("id", this.id + "autocomplete-list");
+            a.setAttribute("class", "autocomplete-items");
+            this.parentNode.appendChild(a);
+            for (i = 0; i < arr.length; i++) {
+              if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                b = document.createElement("DIV");
+                b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                b.innerHTML += arr[i].substr(val.length);
+                b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                b.addEventListener("click", function(e) {
+                    inp.value = this.getElementsByTagName("input")[0].value;
+                    closeAllLists();
+                });
+                a.appendChild(b);
+              }
+            }
+        });
+        inp.addEventListener("keydown", function(e) {
+            var x = document.getElementById(this.id + "autocomplete-list");
+            if (x) x = x.getElementsByTagName("div");
+            if (e.keyCode == 40) {
+              currentFocus++;
+              addActive(x);
+            } else if (e.keyCode == 38) { 
+              currentFocus--;
+              addActive(x);
+            } else if (e.keyCode == 13) {
+              e.preventDefault();
+              if (currentFocus > -1) {
+                if (x) x[currentFocus].click();
+              }
+            }
+        });
+        function addActive(x) {
+          if (!x) return false;
+          removeActive(x);
+          if (currentFocus >= x.length) currentFocus = 0;
+          if (currentFocus < 0) currentFocus = (x.length - 1);
+          x[currentFocus].classList.add("autocomplete-active");
+        }
+        function removeActive(x) {
+          for (var i = 0; i < x.length; i++) {
+            x[i].classList.remove("autocomplete-active");
+          }
+        }
+        function closeAllLists(elmnt) {
+          var x = document.getElementsByClassName("autocomplete-items");
+          for (var i = 0; i < x.length; i++) {
+            if (elmnt != x[i] && elmnt != inp) {
+              x[i].parentNode.removeChild(x[i]);
+            }
+          }
+        }
+        document.addEventListener("click", function (e) {
+            closeAllLists(e.target);
+        });
+      }
+
+      var lap = {{ suggestions|tojson }};
+      autocomplete(document.getElementById("myInput"), lap);
+    </script>
+  </body>
+</html>

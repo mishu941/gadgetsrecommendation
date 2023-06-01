@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Gadget Recommendation System</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Auto Complete -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+  
+</head>
+<body>
+
+
+  <section id="title">
+
+  
+    <div class="container-fluid" style="padding-top:1%;">
+      <nav class="navbar navbar-expand-lg navbar-dark " >
+          <a class="navbar-brand" style="color:#fff;" >Gadget Recommendation System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+          <ul class="navbar-nav ml-auto">
+  
+            <li class="nav-item">
+              <a class="nav-link" href="\">Home</a>
+  
+              </li>
+         
+  
+              <li class="nav-item" >
+                <a class="nav-link" href="#secbox">Recommender</a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link " href="#thibox">About Us</a>
+              </li>
+              <li class="nav-item" >
+                <a class="nav-link " href="#footer">Contact Us </a>
+              </li>
+          </ul>
+  
+        
+   
+        </div>
+      </nav>
+    </div>
+  
+  </section>
+  
+  
+  <div class="container-fluid"  style="background-color:#fff; padding:5% 10%; justify-content:center; align-items:justify;">
+    <div id="mcontent">
+  
+    <div class="poster-lg">
+      <img class="poster" style="border-radius: 40px;margin-left: 90px;" width="100%" src= {{ img }}>
+    </div>
+    <div class="poster-sm text-center">
+      <img class="poster" style="border-radius: 40px;margin-bottom: 5%;" height="400" width="250" src= {{ img }}>
+    </div>
+    
+    <div id="details" style="padding-left:10%;">
+      <h2 class="card-title">{{ laptop }}</h2>
+      <hr>
+      <p> <strong>Brand:</strong> {{ brand }} </p>
+      <p> <strong>Procesor:</strong> {{ processor }} </p>
+      <p> <strong>RAM:</strong> {{ ram }} </p>
+      <p> <strong>Hard disk:</strong> {{ hard_disk }} </p>
+      <p> <strong>SSD:</strong> {{ ssd }} </p>
+      <p> <strong>Graphic Card:</strong> {{ graphic }} </p>
+      <p> <strong>Operating System:</strong> {{ os }}</p>
+      <p> <strong>Resolution:</strong> {{ resolution }} </p>
+      <p> <strong>Dimensions(mm):</strong> {{ dimensions }} </p>
+      <p> <strong>Weight(kg):</strong> {{ weight  }} </p>
+      <p> <strong>Battery life:</strong> {{ battery }} </p>
+      <p> <strong>Price:</strong> {{price}} </p>            
+     
+    </div>
+  </div>
+</div>
+<br/>
+  
+
+<section class="main-banner" id="thibox">
+  <div class="full-wrap">
+     <div class="wrapper" >
+          
+    <h1  style="font-size:3rem; color:#fff ;" >Here are the similar items for your search:</h1>
+
+        </div>
+         
+  </div>
+</section>
+  <section style="padding:5% 5%; background-color:#fff; ">
+<div class="row" >
+  {% for imgs , name, details in pair[0:4] %}
+    <div class="col-sm-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading"> {{ name }}</div>
+        <div class="panel-body"><img src={{ imgs }} class="img-responsive" width="50%" alt={{name}}></div>
+        <button type="button" class="btn btn-primary" style="background-color: #555555; margin:2%; padding:2%;" data-toggle="modal" data-target=#{{details[12]}}>
+          Click to see Details
+        </button>
+
+        <div class="modal fade" id= {{details[12]}} tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="card-body">
+              <div class="modal-body">
+                <img class="card-img-top" src= {{ imgs }} alt="Card image" style="width:50%">
+                      <h4 class="card-title">{{ name }}</h4>
+                      <hr>
+                      <p> <strong>Brand:</strong> {{ details[0] }} </p>
+                      <p> <strong>Procesor:</strong> {{ details[1] }} </p>
+                      <p> <strong>RAM:</strong> {{ details[2] }} </p>
+                      <p> <strong>Hard disk:</strong> {{ details[3] }} </p>
+                      <p> <strong>SSD:</strong> {{ details[4] }} </p>
+                      <p> <strong>Graphic Card:</strong> {{ details[5] }} </p>
+                      <p> <strong>Operating System:</strong> {{ details[6] }}</p>
+                      <p> <strong>Resolution:</strong> {{ details[7] }} </p>
+                      <p> <strong>Dimensions(mm):</strong> {{ details[8] }} </p>
+                      <p> <strong>Weight(kg):</strong> {{ details[9] }} </p>
+                      <p> <strong>Battery life:</strong> {{ details[10] }} </p>
+                      <p> <strong>Price:</strong> {{details[11]}} </p>             
+                    
+                    </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+    <br><br>
+    &nbsp;
+    
+<div class="row">
+  {% for imgs , name, details in pair[4:8] %}
+    <div class="col-sm-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading"> {{ name }}</div>
+        <div class="panel-body"><img src={{ imgs }} class="img-responsive" width="50%" alt={{name}}></div>
+        <button type="button" class="btn btn-primary" style="background-color: #555555; margin:2%; padding:2%;" data-toggle="modal" data-target=#{{details[12]}}>
+          Click to see Details
+        </button>
+
+        <div class="modal fade" id= {{details[12]}} tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="width:100%;">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="card-body">
+              <div class="modal-body">
+                <img class="card-img-top" src= {{ imgs }} alt="Card image" style="width:50%">
+                      <h4 class="card-title">{{ name }}</h4>
+                      <hr>
+                      <p> <strong>Brand:</strong> {{ details[0] }} </p>
+                      <p> <strong>Procesor:</strong> {{ details[1] }} </p>
+                      <p> <strong>RAM:</strong> {{ details[2] }} </p>
+                      <p> <strong>Hard disk:</strong> {{ details[3] }} </p>
+                      <p> <strong>SSD:</strong> {{ details[4] }} </p>
+                      <p> <strong>Graphic Card:</strong> {{ details[5] }} </p>
+                      <p> <strong>Operating System:</strong> {{ details[6] }}</p>
+                      <p> <strong>Resolution:</strong> {{ details[7] }} </p>
+                      <p> <strong>Dimensions(mm):</strong> {{ details[8] }} </p>
+                      <p> <strong>Weight(kg):</strong> {{ details[9] }} </p>
+                      <p> <strong>Battery life:</strong> {{ details[10] }} </p>
+                      <p> <strong>Price:</strong> {{details[11]}} </p>  
+                    </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+    <br><br>
+    &nbsp;
+    
+    <div class="row" >
+      {% for imgs , name, details in pair[8:12] %}
+        <div class="col-sm-3">
+          <div class="panel panel-primary">
+            <div class="panel-heading"> {{ name }}</div>
+            <div class="panel-body"><img src={{ imgs }} class="img-responsive" alt={{name}}></div>
+            <button type="button" class="btn btn-primary" style="background-color: #555555; margin:2%; padding:2%;" data-toggle="modal" data-target=#{{details[12]}}>
+              Click to see Details
+            </button>
+    
+            <div class="modal fade" id= {{details[12]}} tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="card-body">
+                  <div class="modal-body">
+                    <img class="card-img-top" src= {{ imgs }} alt="Card image" style="width:50%">
+                          <h4 class="card-title">{{ name }}</h4>
+                          <hr>
+                          <p> <strong>Brand:</strong> {{ details[0] }} </p>
+                          <p> <strong>Procesor:</strong> {{ details[1] }} </p>
+                          <p> <strong>RAM:</strong> {{ details[2] }} </p>
+                          <p> <strong>Hard disk:</strong> {{ details[3] }} </p>
+                          <p> <strong>SSD:</strong> {{ details[4] }} </p>
+                          <p> <strong>Graphic Card:</strong> {{ details[5] }} </p>
+                          <p> <strong>Operating System:</strong> {{ details[6] }}</p>
+                          <p> <strong>Resolution:</strong> {{ details[7] }} </p>
+                          <p> <strong>Dimensions(mm):</strong> {{ details[8] }} </p>
+                          <p> <strong>Weight(kg):</strong> {{ details[9] }} </p>
+                          <p> <strong>Battery life:</strong> {{ details[10] }} </p>
+                          <p> <strong>Price:</strong> {{details[11]}} </p>   
+                        </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    
+    
+        <br><br>
+        &nbsp;
+    
+        <div class="row">
+          {% for imgs , name, details in pair[12:16] %}
+            <div class="col-sm-3">
+              <div class="panel panel-primary">
+                <div class="panel-heading"> {{ name }}</div>
+                <div class="panel-body"><img src={{ imgs }} class="img-responsive" width="50%" alt={{name}}></div>
+                <button type="button" class="btn btn-primary" style="background-color: #555555; margin:2%; padding:2%;" data-toggle="modal" data-target=#{{details[12]}}>
+                  Click to see Details
+                </button>
+        
+                <div class="modal fade" id= {{details[12]}} tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="card-body">
+                      <div class="modal-body">
+                        <img class="card-img-top" src= {{ imgs }} alt="Card image" style="width:50%">
+                              <h4 class="card-title">{{ name }}</h4>
+                              <hr>
+                              <p> <strong>Brand:</strong> {{ details[0] }} </p>
+                          <p> <strong>Procesor:</strong> {{ details[1] }} </p>
+                          <p> <strong>RAM:</strong> {{ details[2] }} </p>
+                          <p> <strong>Hard disk:</strong> {{ details[3] }} </p>
+                          <p> <strong>SSD:</strong> {{ details[4] }} </p>
+                          <p> <strong>Graphic Card:</strong> {{ details[5] }} </p>
+                          <p> <strong>Operating System:</strong> {{ details[6] }}</p>
+                          <p> <strong>Resolution:</strong> {{ details[7] }} </p>
+                          <p> <strong>Dimensions(mm):</strong> {{ details[8] }} </p>
+                          <p> <strong>Weight(kg):</strong> {{ details[9] }} </p>
+                          <p> <strong>Battery life:</strong> {{ details[10] }} </p>
+                          <p> <strong>Price:</strong> {{details[11]}} </p>          
+                            
+                            </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        
+        
+            <br><br>
+              
+  
+
+&nbsp;
+&nbsp;
+
+        </section>
+
+<section class="main-banner" id="thibox">
+  <div class="full-wrap">
+     <div class="wrapper" >
+          
+    <h1  style="font-size:3rem; color:#fff ;" >About us</h1>
+ <p  style="font-size:20px; color:#fff; padding:5%;" >
+
+  Introducing our cutting-edge gadget recommendation system! Leveraging advanced machine learning algorithms, it analyzes your preferences, usage patterns, and budget to deliver personalized gadget suggestions. Say goodbye to decision fatigue and discover the perfect tech companion tailored just for you.</p>
+        </div>
+         
+  </div>
+</section>
+
+<footer id="footer" style="color:#fff; ">
+  <center>
+    <h2 style="font-size: 45px;">Team Details</h2>
+  </center>
+ <br>
+ <br>
+
+
+ <div class="row">
+  <div class="column">
+    <h4>Team Leader</h4>
+    <p> Name: Vaibhav Jain <br>
+      Roll Number: 19ESKIT096 <br>
+      Email: jain.vaibhav2700@gmail.com <br></p>
+<br>
+<br>
+    <h4>  Team Member 1</h4>
+<p>Name: Sneha Khandelwal<br>
+Roll Number: 19ESKIT090<br>
+Email: snehakhandelwal333@gmail.com <br></p>
+
+  </div>
+  <div class="column" >
+    <h4> Team Member 2</h4>
+    <p> Name: Sonali Kumawat<br>
+      Roll Number: 19ESKIT091<br>
+      Email: sonalikumawat700@gmail.com </p>
+      <br>
+<br>
+    <h4>Team Member 3</h4>
+    <p>Name: Mishu Pushpendra Jain<br>
+      Roll Number: 19ESKIT304<br>
+      Email: mishujain920@gmail.com<br></p>
+  </div>
+</div>
+ 
+
+</footer>
+
+
+</body>
+</html>
